@@ -1,19 +1,18 @@
 # Ignore everything
 *
-
 # Keep these specific files
 !.gitignore
 !init.el
 !extensions.txt
-
+!README.md
 # Keep configs directory and all its contents
 !configs/
 !configs/**
-
 # But ignore temp/backup files everywhere
 **/*~
 **/*.elc
 **/*.backup
 **/*.swp
 **/.#*
+**/#*#
 **/auto-save-list/

@@ -97,4 +97,8 @@ Removes packages that are no longer in package-selected-packages."
             (lambda (pkg &rest _args)
               (sync-installed-packages-to-extensions.txt)))
 
+(advice-add 'package-delete :after
+            (lambda (pkg &rest _)
+              (sync-installed-packages-to-extensions.txt)))
+
 (provide 'functions)
