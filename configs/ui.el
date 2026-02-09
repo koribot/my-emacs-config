@@ -25,14 +25,14 @@
 
 
 ;; Save and restore sessions automatically
-;; Ignore frameset errors
-(setq desktop-restore-frames nil)  ; Don't restore frame configuration
 (desktop-save-mode 1)
+(setq desktop-restore-frames nil)  ; Don't restore frame configuration
+(setq desktop-lazy-verbose nil)  ; Less messages during lazy loading
+(setq desktop-lazy-idle-delay 1)   ; Wait 1 second before lazy loading
+(setq desktop-restore-eager 1)  ; Load first 3 buffers immediately, rest lazy
 
-
-;; Customize what to save
-(setq desktop-restore-eager 10)  ; Load first 10 buffers immediately, rest lazy
-(setq desktop-auto-save-timeout 300)  ; Auto-save every 5 minutes
+; Auto-save every 5 minutes
+(setq desktop-auto-save-timeout 300) 
 
 
 (provide 'ui)
