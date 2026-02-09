@@ -1,0 +1,8 @@
+counsel
+dired-sidebar
+ivy
+marginalia
+orderless
+swiper-helm
+typescript-mode
+vertico
