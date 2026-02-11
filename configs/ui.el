@@ -9,6 +9,20 @@
 (tool-bar-mode -1)
 (global-display-line-numbers-mode 1)
 
+
+(add-hook 'prog-mode-hook #'hideshowvis-enable)
+;;(autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
+;; (autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
+
+;; (autoload 'hideshowvis-minor-mode
+;;   "hideshowvis"
+;;   "Will indicate regions foldable with hideshow in the fringe."
+;;   'interactive)
+
+;; (dolist (hook (list 'emacs-lisp-mode-hook
+;;                     'c++-mode-hook))
+;;   (add-hook hook 'hideshowvis-enable))
+
 ;; Frame settings
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
