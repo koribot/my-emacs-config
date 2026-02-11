@@ -21,7 +21,8 @@
 ;; Dired settings
 (add-hook 'dired-mode-hook
           (lambda ()
-            (local-set-key [mouse-1] 'dired-find-file)))
+           (local-set-key [mouse-1] 'dired-find-file)))
+
 
 
 ;; Save and restore sessions automatically
@@ -31,6 +32,13 @@
 (setq desktop-lazy-idle-delay 1)   ; Wait 1 second before lazy loading
 (setq desktop-restore-eager 1)  ; Load first 3 buffers immediately, rest lazy
 
+(electric-indent-mode -1)
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+
+;; Add this line at the top of your init file for line spacing
+(setq-default line-spacing 4)
+(set-face-attribute 'default nil :font "Lucida Console-11")
 ; Auto-save every 5 minutes
 (setq desktop-auto-save-timeout 300) 
 
