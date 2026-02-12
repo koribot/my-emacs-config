@@ -1,5 +1,4 @@
 counsel
-dired-sidebar
 hideshowvis
 ivy
 marginalia

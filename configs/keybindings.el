@@ -1,8 +1,5 @@
 ;;; Custom Keybindings
 
-;; Dired sidebar
-(global-set-key (kbd "<f8>") 'dired-sidebar-toggle-sidebar)
-
 ;; Ctrl+Tab: cycle windows/buffers
 (global-set-key (kbd "<C-tab>")
                 (lambda ()

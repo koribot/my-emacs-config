@@ -1,0 +1,151 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Feb 12 16:49:14 2026
+;; Desktop file format version 208
+;; Emacs version 30.1
+
+;; Global section:
+(setq desktop-saved-frameset nil)
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs.d/configs/" "c:/Users/wcawa/"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "c:/Users/wcawa/AppData/Roaming/.emacs.d/configs/ui.el"
+  "ui.el"
+  'emacs-lisp-mode
+  '(display-line-numbers-mode)
+  1547
+  '(1 nil)
+  nil
+  nil
+  '((buffer-display-time 27021 37898 323114 0) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (1 1 1 1 1 1 1 1 1))))
+
+(desktop-append-buffer-args 208
+  "c:/Users/wcawa/AppData/Roaming/.emacs.d/configs/language-mode.el"
+  "language-mode.el"
+  'emacs-lisp-mode
+  '(display-line-numbers-mode)
+  1
+  '(390 nil)
+  nil
+  nil
+  '((buffer-display-time 27021 37789 15935 0) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (390 390))))
+
+(desktop-append-buffer-args 208
+  "c:/Users/wcawa/AppData/Roaming/.emacs.d/configs/keybindings.el"
+  "keybindings.el"
+  'emacs-lisp-mode
+  '(display-line-numbers-mode)
+  613
+  '(613 nil)
+  nil
+  nil
+  '((buffer-display-time 27021 37772 851199 0) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (1 613))))
+
+(desktop-append-buffer-args 208
+  nil
+  "configs"
+  'dired-mode
+  '(display-line-numbers-mode font-lock-mode)
+  492
+  '(nil nil)
+  t
+  '("c:/Users/wcawa/AppData/Roaming/.emacs.d/configs/")
+  '((buffer-display-time 27021 37796 359360 0))
+  '((mark-ring nil)))
+
+(desktop-append-buffer-args 208
+  "c:/Users/wcawa/AppData/Roaming/.emacs.d/configs/functions.el"
+  "functions.el"
+  'emacs-lisp-mode
+  '(display-line-numbers-mode)
+  169
+  '(3651 nil)
+  nil
+  nil
+  '((buffer-display-time 27021 37758 49483 0) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (1 3651 344 344 169))))
+
+(desktop-append-buffer-args 208
+  "c:/Users/wcawa/AppData/Roaming/.emacs.d/configs/dirs.el"
+  "dirs.el"
+  'emacs-lisp-mode
+  '(display-line-numbers-mode)
+  2418
+  '(2802 nil)
+  nil
+  nil
+  '((buffer-display-time 27021 37702 728780 0) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (448 2802 2418))))
+
+(desktop-append-buffer-args 208
+  "c:/Users/wcawa/AppData/Roaming/.emacs.d/configs/completion.el"
+  "completion.el"
+  'emacs-lisp-mode
+  '(display-line-numbers-mode)
+  279
+  '(340 nil)
+  nil
+  nil
+  '((buffer-display-time 27021 37689 11803 0) (buffer-file-coding-system . prefer-utf-8-unix))
+  '((mark-ring (340 340 279))))
+
+(desktop-append-buffer-args 208
+  nil
+  ".emacs.d"
+  'dired-mode
+  '(display-line-numbers-mode font-lock-mode)
+  260
+  '(nil nil)
+  t
+  '("c:/Users/wcawa/AppData/Roaming/.emacs.d/")
+  '((buffer-display-time 27021 37685 276710 0))
+  '((mark-ring nil)))
+
+(desktop-append-buffer-args 208
+  nil
+  "Roaming"
+  'dired-mode
+  '(display-line-numbers-mode font-lock-mode)
+  692
+  '(nil nil)
+  t
+  '("c:/Users/wcawa/AppData/Roaming/")
+  '((buffer-display-time 27021 37683 34312 0))
+  '((mark-ring nil)))
+
+(desktop-append-buffer-args 208
+  nil
+  "AppData"
+  'dired-mode
+  '(display-line-numbers-mode font-lock-mode)
+  332
+  '(nil nil)
+  t
+  '("c:/Users/wcawa/AppData/")
+  '((buffer-display-time 27021 37682 35685 0))
+  '((mark-ring nil)))
+
+(desktop-append-buffer-args 208
+  nil
+  "wcawa"
+  'dired-mode
+  '(display-line-numbers-mode font-lock-mode)
+  270
+  '(nil nil)
+  t
+  '("c:/Users/wcawa/")
+  '((buffer-display-time 27021 37680 657786 0))
+  '((mark-ring nil)))
+

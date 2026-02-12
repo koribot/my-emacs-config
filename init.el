@@ -62,6 +62,6 @@
  '(custom-enabled-themes '(tango-dark))
  '(global-whitespace-mode nil)
  '(package-selected-packages
-   '(counsel dired-sidebar hideshowvis ivy marginalia orderless
-	     swiper-helm typescript-mode vertico))
+   '(counsel hideshowvis ivy marginalia orderless swiper-helm
+	     typescript-mode vertico))
  '(tool-bar-mode nil))

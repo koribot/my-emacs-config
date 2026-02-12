@@ -1,5 +1,4 @@
 ;;; UI Appearance Settings
-
 (setq inhibit-startup-screen t)
 (setq frame-title-format "koribot24 - %b")
 ;; Don't show DOS line endings as ^M or $
@@ -9,52 +8,33 @@
 (tool-bar-mode -1)
 (global-display-line-numbers-mode 1)
 
-
-(add-hook 'prog-mode-hook #'hideshowvis-enable)
-;;(autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
-;; (autoload 'hideshowvis-enable "hideshowvis" "Highlight foldable regions")
-
-;; (autoload 'hideshowvis-minor-mode
-;;   "hideshowvis"
-;;   "Will indicate regions foldable with hideshow in the fringe."
-;;   'interactive)
-
-;; (dolist (hook (list 'emacs-lisp-mode-hook
-;;                     'c++-mode-hook))
-;;   (add-hook hook 'hideshowvis-enable))
+;; Safe hideshowvis hook - only runs if package is available
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (when (fboundp 'hideshowvis-enable)
+              (hideshowvis-enable))))
 
 ;; Frame settings
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-
-
 ;; Disable bell
 (setq ring-bell-function 'ignore)
-
 ;; Dired settings
 (add-hook 'dired-mode-hook
           (lambda ()
            (local-set-key [mouse-1] 'dired-find-file)))
-
-
-
 ;; Save and restore sessions automatically
 (desktop-save-mode 1)
 (setq desktop-restore-frames nil)  ; Don't restore frame configuration
 (setq desktop-lazy-verbose nil)  ; Less messages during lazy loading
 (setq desktop-lazy-idle-delay 1)   ; Wait 1 second before lazy loading
 (setq desktop-restore-eager 1)  ; Load first 3 buffers immediately, rest lazy
-
 (electric-indent-mode -1)
 (global-set-key (kbd "RET") 'newline-and-indent)
-
-
 ;; Add this line at the top of your init file for line spacing
 (setq-default line-spacing 4)
 (set-face-attribute 'default nil :font "Lucida Console-11")
 ; Auto-save every 5 minutes
 (setq desktop-auto-save-timeout 300) 
-
-
 (provide 'ui)
