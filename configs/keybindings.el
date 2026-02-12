@@ -16,4 +16,10 @@
                       (previous-buffer)
                     (other-window -1))))
 
+;; F3, F4 in record and stopping macro
+(global-set-key (kbd "<f3>") #'kmacro-start-macro-or-insert-counter)
+(global-set-key (kbd "<f4>") #'kmacro-end-or-call-macro)
+(global-set-key (kbd "<f5>") #'call-last-kbd-macro)
+
+
 (provide 'keybindings)
