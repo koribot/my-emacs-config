@@ -90,6 +90,26 @@ Removes packages that are no longer in package-selected-packages."
       (message "Installation complete: %d installed, %d already present"
                installed-count skipped-count))))
 
+
+;; duplicate line and move remain the cursor at the same column
+(defun duplicate-line-or-region ()
+  "Duplicate current line or selected region, keeping cursor column."
+  (interactive)
+  (let ((col (current-column)))
+    (if (use-region-p)
+        (let ((text (buffer-substring (region-beginning) (region-end))))
+          (goto-char (region-end))
+          (insert text))
+      (let ((text (buffer-substring (line-beginning-position)
+                                    (line-end-position))))
+        (end-of-line)
+        (insert "\n" text)))
+    (move-to-column col)))
+(global-set-key (kbd "C-,") 'duplicate-line-or-region)
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                   HOOKS                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
