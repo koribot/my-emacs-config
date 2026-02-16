@@ -6,6 +6,13 @@
             (setq gc-cons-threshold (* 20 1000 1000)) ; 20mb
             (setq file-name-handler-alist default-file-name-handler-alist)))
 
+;; Stop creating backup files (files ending with ~)
+(setq make-backup-files nil)
+
+;; Stop creating auto-save files (files starting and ending with #)
+(setq auto-save-default nil)
+
+
 ;; Initialize package system (since we disabled auto-init in early-init.el)
 (package-initialize)
 
