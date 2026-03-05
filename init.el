@@ -42,7 +42,11 @@
 
 ;; Custom faces and variables
 (custom-set-faces
- '(default ((t (:foreground "#c8c8c0" :font "Lucida Console-11"))))  ;; <-- ADD :font HERE
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:foreground "#c8c8c0" :font "Lucida Console-11"))))
  '(cursor ((t (:background "#e8c080"))))
  '(dired-directory ((t (:foreground "#e0b070" :weight normal))))
  '(font-lock-builtin-face ((t (:foreground "#c8c8c0"))))
@@ -59,10 +63,14 @@
  '(lsp-face-highlight-write ((t (:background "#342d26")))))
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tango-dark))
  '(global-whitespace-mode nil)
  '(package-selected-packages
-   '(counsel hideshowvis ivy marginalia orderless
-     swiper-helm typescript-mode vertico dumb-jump))
+   '(counsel dumb-jump go-mode hideshowvis ivy marginalia orderless
+	     swiper-helm typescript-mode vertico))
  '(tool-bar-mode nil))
 

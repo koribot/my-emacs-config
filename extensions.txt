@@ -1,4 +1,6 @@
 counsel
+dumb-jump
+go-mode
 hideshowvis
 ivy
 marginalia
