@@ -7,10 +7,21 @@
             (setq file-name-handler-alist default-file-name-handler-alist)))
 
 ;; Stop creating backup files (files ending with ~)
-(setq make-backup-files nil)
+;;(setq make-backup-files nil)
 
 ;; Stop creating auto-save files (files starting and ending with #)
-(setq auto-save-default nil)
+;;(setq auto-save-default nil)
+
+;; Auto-create backup and auto-save folders if they don't exist
+(make-directory "~/.emacs.d/backups" t)
+(make-directory "~/.emacs.d/auto-saves" t)
+
+;; Send all backup files to one folder
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+;; Send all auto-save files to one folder
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-saves/" t)))
+;; Still disable lock files
+(setq create-lockfiles nil)
 
 
 ;; Initialize package system (since we disabled auto-init in early-init.el)
