@@ -3,6 +3,7 @@
 # Keep these specific files
 !.gitignore
 !init.el
+!early-init.el
 !extensions.txt
 !README.md
 # Keep configs directory and all its contents
