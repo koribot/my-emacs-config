@@ -17,6 +17,7 @@
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-saves/" t)))
 ;; Still disable lock files
 (setq create-lockfiles nil)
+(setq-default tab-width 4)
 ;; Initialize package system (since we disabled auto-init in early-init.el)
 (package-initialize)
 ;; Install critical dependencies first
