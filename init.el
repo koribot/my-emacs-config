@@ -79,6 +79,6 @@
  '(custom-enabled-themes '(tango-dark))
  '(global-whitespace-mode nil)
  '(package-selected-packages
-   '(## counsel dumb-jump go-mode hideshowvis ivy marginalia orderless
-	swiper-helm typescript-mode vertico))
+   '(## counsel dumb-jump go-mode hideshowvis ivy marginalia
+		multiple-cursors orderless swiper-helm typescript-mode vertico))
  '(tool-bar-mode nil))

@@ -8,3 +8,4 @@ orderless
 swiper-helm
 typescript-mode
 vertico
+multiple-cursors

@@ -21,5 +21,10 @@
 (global-set-key (kbd "<f4>") #'kmacro-end-or-call-macro)
 (global-set-key (kbd "<f5>") #'call-last-kbd-macro)
 
+;; multiple-cursor
+(global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c m p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c m e") 'mc/edit-lines)
 
 (provide 'keybindings)
