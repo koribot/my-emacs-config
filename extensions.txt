@@ -1,11 +1,14 @@
 counsel
+dash
 dumb-jump
 go-mode
 hideshowvis
 ivy
 marginalia
+multiple-cursors
 orderless
+popup
+s
 swiper-helm
 typescript-mode
 vertico
-multiple-cursors

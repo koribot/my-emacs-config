@@ -5,10 +5,14 @@
 !init.el
 !early-init.el
 !extensions.txt
+!extensions.lock
 !README.md
 # Keep configs directory and all its contents
 !configs/
 !configs/**
+# Keep package cache for reproducible installs
+!package-cache/
+!package-cache/**
 # But ignore temp/backup files everywhere
 **/*~
 **/*.elc
