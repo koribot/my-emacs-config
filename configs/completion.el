@@ -27,7 +27,8 @@
 (when (require 'counsel nil t)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "C-x b") 'counsel-switch-buffer))
+  (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
+  (define-key ivy-minibuffer-map (kbd "C-l") 'counsel-up-directory))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                SWIPER                     ;;
