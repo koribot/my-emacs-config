@@ -16,7 +16,6 @@
 ;; Dired settings
 (add-hook 'dired-mode-hook
           (lambda ()
-            (dired-hide-details-mode 1)  ; hide permissions/owner/group, ( to toggle
             (local-set-key [mouse-1] 'dired-find-file)
             ;; s = show size of file/dir under cursor via du -sh
             (local-set-key (kbd "s")
