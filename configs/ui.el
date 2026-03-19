@@ -16,7 +16,18 @@
 ;; Dired settings
 (add-hook 'dired-mode-hook
           (lambda ()
-           (local-set-key [mouse-1] 'dired-find-file)))
+            (local-set-key [mouse-1] 'dired-find-file)
+            ;; s = show size of file/dir under cursor via du -sh
+            (local-set-key (kbd "s")
+                           (lambda ()
+                             (interactive)
+                             (let ((file (dired-get-file-for-visit)))
+                               (message "%s  →  %s"
+                                        (file-name-nondirectory file)
+                                        (string-trim
+                                         (shell-command-to-string
+                                          (format "du -sh %s 2>/dev/null | cut -f1"
+                                                  (shell-quote-argument file))))))))))
 
 ;; Save and restore sessions automatically
 (desktop-save-mode 1)

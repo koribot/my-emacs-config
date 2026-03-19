@@ -1,0 +1,179 @@
+#+TITLE: koribot24
+#+STARTUP: showall
+#+OPTIONS: toc:nil num:nil
+
+#+BEGIN_EXAMPLE
+  ╔══════════════════════════════════════════════════════╗
+  ║            koribot24 · Emacs Reference               ║
+  ╚══════════════════════════════════════════════════════╝
+#+END_EXAMPLE
+
+* ⌨  Keys
+#+BEGIN_EXAMPLE
+  ── Navigation ──────────────────────────────────────────
+  C-Tab / C-S-Tab    next / prev buffer or window
+  C-x b              switch buffer
+  C-x C-f            find file
+  C-x 2 / 3          split horizontal / vertical
+  C-x 0 / 1          close this / close others
+  C-s                live search  (swiper)
+  C-x g              open magit
+  C-c r / C-c p      recent dirs / popular dirs
+  M-g g              go to line
+  M-. / M-,          jump to definition / back
+  C-u C-SPC          jump to last mark
+
+  ── Editing ─────────────────────────────────────────────
+  C-,                duplicate line or region
+  M-;                comment / uncomment
+  M-%                query replace
+  C-/ or C-x u       undo
+
+  ── Multiple Cursors ────────────────────────────────────
+  C-c m n / p        mark next / prev like this
+  C-c m a            mark all like this
+  C-c m e            edit lines  (one cursor per line)
+
+  ── Macros ──────────────────────────────────────────────
+  F3                 start recording  (inserts counter if active)
+  F4                 stop / call
+  F5                 repeat
+
+  ── Code Folding ────────────────────────────────────────
+  C-c h h / s        hide / show block
+  C-c h H / S        hide / show all
+
+  ── Ivy / Minibuffer ────────────────────────────────────
+  C-l                up a directory  (in find-file)
+  M-n / M-p          cycle input history
+  C-j                use input as-is
+
+  ── Help ────────────────────────────────────────────────
+  C-h k              describe key
+  C-h f              describe function
+  C-h v              describe variable
+  C-h m              show all bindings for current mode
+#+END_EXAMPLE
+
+* ⚙  Commands
+#+BEGIN_EXAMPLE
+  cfg / cfg-file              open config dir / init.el
+  my-help                     this buffer
+  my-mode                     switch major mode  (fuzzy)
+
+  install-default-packages    install from package.default
+  install-packages-from-lock  restore from package.lock/ offline
+  view-package-lock           view lock contents
+
+  package-install <n>         install + auto-record
+  package-delete <n>          delete + remove deps + resync lock
+
+  eval-buffer / eval-region   reload elisp
+  revert-buffer               reload file from disk
+  occur                       find all lines matching regex
+  imenu                       jump to symbol in file
+  man                         open man page
+#+END_EXAMPLE
+
+* 📦  Packages
+#+BEGIN_EXAMPLE
+  package.default    your list, one name per line, auto-updated
+  package.lock/      DO NOT EDIT, commit to git
+    manifest.el      name=url@commit [:dep-of parent]
+    *.tar.gz         archives, extracted into elpa/ on restore
+
+  Add    M-x package-install <n>
+  Remove M-x package-delete <n>   → deps deleted automatically
+
+  Fresh + internet   M-x install-default-packages
+  Fresh offline      M-x install-packages-from-lock
+#+END_EXAMPLE
+
+* 🔤  Language & Docs
+#+BEGIN_EXAMPLE
+  .tsx / .ts    typescript-mode
+  .go           go-mode
+  M-.           jump to def  (dumb-jump, no LSP needed)
+
+  C    man 3 printf          M-x man
+  Go   go doc fmt.Println
+  Py   python3 -m pydoc os.path
+  Rust rustup doc            docs.rs
+  JS   developer.mozilla.org
+  Lua  lua.org/manual
+  Sys  man 2 open
+#+END_EXAMPLE
+
+* 💡  Tips
+#+BEGIN_EXAMPLE
+  Sessions        desktop-save-mode ON — buffers restore on restart
+  Indent          electric-indent OFF, RET = newline-and-indent
+  Tab width       4
+  Encoding        UTF-8 Unix
+  Completion      ivy when installed, fido-mode as fallback
+  Ivy height      15 lines
+
+  C-h m           fastest way to discover mode keybindings
+  C-u <n> <cmd>   repeat command n times
+  F3 while rec    inserts auto-incrementing counter
+  wdired          M-x wdired-change-to-wdired-mode to rename by editing
+#+END_EXAMPLE
+
+* 🆘  Troubleshooting
+#+BEGIN_EXAMPLE
+  Packages not loading       M-x package-initialize  or restart
+  package.lock/ out of sync  M-x install-default-packages
+  Key not working            C-h k <key>
+  Find where fn is defined   M-x find-function
+  Reload config change       M-x eval-buffer  (in the .el file)
+  Emacs slow                 M-x profiler-start → restart → profiler-report
+#+END_EXAMPLE
+
+* 🐙  Magit  (Git)
+#+BEGIN_EXAMPLE
+  C-x g               open magit  (main entry point)
+  M-x magit-status    same as above
+
+  ── Staging (git add) ───────────────────────────────────
+  s        stage file or hunk under cursor   (git add file)
+  S        stage all                         (git add .)
+  u        unstage                           (git restore --staged)
+  U        unstage all
+  TAB      expand file to see individual hunks
+           then s/u on a specific hunk to stage/unstage just that
+
+  ── Committing ──────────────────────────────────────────
+  c c      commit  → write message → C-c C-c confirm, C-c C-k cancel
+  c a      amend last commit  (edit message or add more changes)
+  c w      reword last commit  (only change the message)
+
+  ── Remote ──────────────────────────────────────────────
+  P p      push                             (git push)
+  F p      pull                             (git pull)
+
+  ── Branches ────────────────────────────────────────────
+  b b      switch branch                    (git checkout)
+  b c      create and switch branch         (git checkout -b)
+
+  ── Other ───────────────────────────────────────────────
+  l l      log / history
+  d d      diff file under cursor
+  z z      stash                            (git stash)
+  z p      stash pop                        (git stash pop)
+  q        quit / go back
+
+  ── Undo ────────────────────────────────────────────────
+  k        discard file/hunk changes        (git restore, CANNOT undo)
+  K        discard all unstaged
+  x        soft reset  (in log, on a commit) (git reset --soft)
+           → uncommits but keeps changes staged
+  X        hard reset  (in log, on a commit) (git reset --hard)
+           → WARNING: discards all changes permanently
+  V        revert commit  (in log, creates new undo commit, safe)
+
+  ── Common Scenarios ────────────────────────────────────
+  Undo last commit, keep changes    l l → on last commit → x
+  Fix last commit message           c w  or  c a
+  Throw away file changes           k on the file
+  Committed to wrong branch         l l → x → b c → commit again
+#+END_EXAMPLE

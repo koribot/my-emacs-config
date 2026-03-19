@@ -1,0 +1,27 @@
+;; AUTO-GENERATED -- DO NOT EDIT
+;; Format: name=url@commit [:dep-of parent], deps-first.
+counsel=https://github.com/abo-abo/swiper@ee79f68215ae7e2b8a38ba6bf7f82b3fe57dc16c
+ivy=https://github.com/abo-abo/swiper@1005bff8a700b92dc464f770aff8a0db5b4a1c0b :dep-of dash
+swiper=https://github.com/abo-abo/swiper@d489b4f0d48fd215119261d92de103c5b5580895 :dep-of dash
+dash=https://github.com/magnars/dash.el@d3a84021dbe48dba63b52ef7665651e0cf02e915
+dumb-jump=https://github.com/jacktasia/dumb-jump@a2285fc46c41b98c1eaf6904d58a0448cfdc920d
+go-mode=https://github.com/dominikh/go-mode.el@58b0c3dfc87f5ae4137ea498dc0e03adc9eeb751
+hideshowvis=https://github.com/sheijk/hideshowvis@cfae9e1f57804a557b81bb1ad778ef355877bc72
+marginalia=https://github.com/minad/marginalia@d28a5e5c1a2e5f3e6669b0197f38da84e08f94a0
+multiple-cursors=https://github.com/magnars/multiple-cursors.el@ddd677091afc7d65ce56d11866e18aeded110ada
+orderless=https://github.com/oantolin/orderless@6e3a09d6026fe7d7d5a3caf9a3d777cc9841fe80
+popup=https://github.com/auto-complete/popup-el@45a0b759076ce4139aba36dde0a2904136282e73
+s=https://github.com/magnars/s.el@b4b8c03fcef316a27f75633fe4bb990aeff6e705
+wfnames=https://github.com/thierryvolpiatto/wfnames@6ea49841ab76f44c0164b9f4722da2f9d46228da :dep-of swiper-helm
+async=https://github.com/jwiegley/emacs-async@5faab28916603bb324d9faba057021ce028ca847 :dep-of swiper-helm
+helm-core=https://emacs-helm.github.io/helm/@dcaa8fb45d4f7d08390d80351a4204f848f2ec90 :dep-of swiper-helm
+helm=https://emacs-helm.github.io/helm/@9d8de1e0810ef5a5e1f3a46c9461b78b9e86167b :dep-of swiper-helm
+swiper-helm=https://github.com/abo-abo/swiper-helm@93fb6db87bc6a5967898b5fd3286954cc72a0008
+typescript-mode=https://github.com/ananthakumaran/typescript.el@481df3ad2cdf569d8e6697679669ff6206fbd2f9
+vertico=https://github.com/minad/vertico@0b96e8f169653cba6530da1ab0a1c28ffa44b180
+with-editor=https://github.com/magit/with-editor@64211dcb815f2533ac3d2a7e56ff36ae804d8338 :dep-of magit
+cond-let=https://github.com/tarsius/cond-let@8bf87d45e169ebc091103b2aae325aece3aa804d :dep-of magit
+transient=https://github.com/magit/transient@c8e4251fd165acd32e014e6310f2219991bea357 :dep-of magit
+llama=https://github.com/tarsius/llama@d430d48e0b5afd2a34b5531f103dcb110c3539c4 :dep-of magit
+magit-section=https://github.com/magit/magit@c800f79c2061621fde847f6a53129eca0e8da728 :dep-of magit
+magit=https://github.com/magit/magit@cf797a9090ce9140eafe3380412e33165212491f

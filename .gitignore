@@ -4,15 +4,14 @@
 !.gitignore
 !init.el
 !early-init.el
-!extensions.txt
-!extensions.lock
+!package.default
 !README.md
 # Keep configs directory and all its contents
 !configs/
 !configs/**
 # Keep package cache for reproducible installs
-!package-cache/
-!package-cache/**
+!package.lock/
+!package.lock/**
 # But ignore temp/backup files everywhere
 **/*~
 **/*.elc
@@ -22,3 +21,4 @@
 **/#*#
 **/auto-save-list/
 org-persist
+!help.org
