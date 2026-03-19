@@ -23,6 +23,9 @@
   M-. / M-,          jump to definition / back
   C-u C-SPC          jump to last mark
 
+  ── Commands ────────────────────────────────────────── 
+  C-c c              shortcut for M-x compile
+
   ── Editing ─────────────────────────────────────────────
   C-,                duplicate line or region
   M-;                comment / uncomment
