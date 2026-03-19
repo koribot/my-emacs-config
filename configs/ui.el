@@ -16,6 +16,7 @@
 ;; Dired settings
 (add-hook 'dired-mode-hook
           (lambda ()
+            (dired-hide-details-mode 1)  ; hide permissions/owner/group, ( to toggle
             (local-set-key [mouse-1] 'dired-find-file)
             ;; s = show size of file/dir under cursor via du -sh
             (local-set-key (kbd "s")
@@ -30,11 +31,15 @@
                                                   (shell-quote-argument file))))))))))
 
 ;; Save and restore sessions automatically
+;; Pin location to ~/.emacs.d so it never lands in configs/ or elsewhere
+(setq desktop-dirname "~/.emacs.d")
+(setq desktop-path '("~/.emacs.d"))
+(setq desktop-base-file-name ".emacs.desktop")
 (desktop-save-mode 1)
-(setq desktop-restore-frames nil)  ; Don't restore frame configuration
-(setq desktop-lazy-verbose nil)    ; Less messages during lazy loading
-(setq desktop-lazy-idle-delay 1)   ; Wait 1 second before lazy loading
-(setq desktop-restore-eager 1)     ; Load first buffer immediately, rest lazy
+(setq desktop-restore-frames nil)    ; Don't restore frame configuration
+(setq desktop-lazy-verbose nil)      ; Less messages during lazy loading
+(setq desktop-lazy-idle-delay 1)     ; Wait 1 second before lazy loading
+(setq desktop-restore-eager 1)       ; Load first buffer immediately, rest lazy
 (setq desktop-auto-save-timeout 300) ; Auto-save every 5 minutes
 
 ;; Indentation
