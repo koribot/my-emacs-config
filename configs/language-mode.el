@@ -1,4 +1,4 @@
-;;; Programming Language Modes
+;;; language.el --- Language Configuration -*- lexical-binding: t; -*-
 
 ;; TypeScript
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))

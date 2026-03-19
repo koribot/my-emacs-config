@@ -1,4 +1,4 @@
-;;; init.el
+;;; init.el --- Init Configuration  -*- lexical-binding: t; -*- 
 
 ;; Restore garbage collection and file handlers after startup
 (add-hook 'emacs-startup-hook

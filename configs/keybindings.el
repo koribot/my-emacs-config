@@ -1,4 +1,4 @@
-;;; Custom Keybindings
+;;; Custom Keybindings --- Custom Keybindings Configuration -*- lexical-binding: t; -*-
 
 ;; Ctrl+Tab: cycle windows/buffers
 (global-set-key (kbd "<C-tab>")

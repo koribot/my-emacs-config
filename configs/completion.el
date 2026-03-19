@@ -1,4 +1,4 @@
-;;; completion.el
+;;; completion.el --- Completion Configuration  -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;              IVY COMPLETION               ;;
@@ -13,6 +13,7 @@
 ;;               COUNSEL                     ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (require 'counsel nil t)
+  (fido-mode -1)  ;; <-- disable fido since counsel takes over
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   (global-set-key (kbd "C-x b") 'counsel-switch-buffer)

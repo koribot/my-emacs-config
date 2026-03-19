@@ -1,4 +1,4 @@
-;;; early-init.el
+;;; early-init.el --- Early-init Configuration -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;            PACKAGE SYSTEM SETUP           ;;

@@ -1,4 +1,4 @@
-;;; custom.el 
+;;; custom.el --- Custom Configuration -*- lexical-binding: t; -*- 
 ;; Auto-managed by Emacs. Avoid editing manually.
 
 (custom-set-faces

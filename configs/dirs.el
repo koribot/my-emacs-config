@@ -1,4 +1,4 @@
-;;; recent-dirs.el --- Track recent directories with Ivy
+;;; recent-dirs.el --- Recent-dirs Configuration -*- lexical-binding: t; -*-
 
 (defvar recent-dirs-list '()
   "List of recently accessed directories.")

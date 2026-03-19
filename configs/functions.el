@@ -1,4 +1,4 @@
-;;; functions.el 
+;;; functions.el --- Functions Configuration -*- lexical-binding: t; -*- 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                   VARIABLES               ;;

@@ -1,4 +1,4 @@
-;;; UI Appearance Settings
+;;; UI.el --- UI Configuration -*- lexical-binding: t; -*- 
 
 ;; Don't show DOS line endings as ^M or $
 (setq inhibit-eol-conversion nil)
