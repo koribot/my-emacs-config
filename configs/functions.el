@@ -1,4 +1,4 @@
-;;; functions.el --- Custom functions -*- lexical-binding: t -*-
+;;; functions.el 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                   VARIABLES               ;;

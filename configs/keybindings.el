@@ -26,6 +26,7 @@
 (global-set-key (kbd "C-c m p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-c m e") 'mc/edit-lines)
+(global-set-key (kbd "C-c C-c") (lambda () (interactive) (compile (read-string "Compile command: " compile-command))))
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
