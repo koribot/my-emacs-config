@@ -63,6 +63,7 @@
   cfg / cfg-file              open config dir / init.el
   my-help                     this buffer
   my-mode                     switch major mode  (fuzzy)
+  my-theme-switch             switch theme interactively
 
   install-default-packages    install from package.default
   install-packages-from-lock  restore from package.lock/ offline
@@ -90,6 +91,42 @@
 
   Fresh + internet   M-x install-default-packages
   Fresh offline      M-x install-packages-from-lock
+#+END_EXAMPLE
+
+* 🎨  Themes
+#+BEGIN_EXAMPLE
+  M-x my-theme-switch         pick a theme interactively
+                              active theme is marked with (active)
+
+  Defined in configs/theme.el
+  Each theme has: :name  :base  :faces  :lsp
+
+  ── Available Themes ────────────────────────────────────
+  Default       warm amber tones, tango-dark base
+  Rosé Pine     dark purple bg, pink/gold accents, modus-vivendi base
+
+  ── Font Selection (automatic per OS) ───────────────────
+  Linux         DejaVu Sans Mono
+  Windows       Lucida Console
+  macOS         Menlo
+  fallback      monospace
+
+  ── Face Reference ──────────────────────────────────────
+  highlight / region            selection & symbol highlight bg
+  line-number                   inactive line numbers
+  line-number-current-line      current line number
+  mode-line / mode-line-inactive status bar active / inactive
+  lsp-face-highlight-*          LSP read / textual / write highlight
+
+  ── Adding a Theme ──────────────────────────────────────
+  Append a new entry to my-themes in configs/theme.el:
+    (list :name "My Theme"
+          :base 'tango-dark
+          :faces `((default . (:foreground "..." :background "..."
+                               :family ,my--coding-font :height 110))
+                   ...)
+          :lsp '((lsp-face-highlight-read . (:background "..."))
+                 ...))
 #+END_EXAMPLE
 
 * 🔤  Language & Docs
@@ -130,6 +167,7 @@
   Find where fn is defined   M-x find-function
   Reload config change       M-x eval-buffer  (in the .el file)
   Emacs slow                 M-x profiler-start → restart → profiler-report
+  Theme not applying         M-x eval-buffer in theme.el → my-theme-switch
 #+END_EXAMPLE
 
 * 🐙  Magit  (Git)

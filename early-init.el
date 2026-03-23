@@ -29,9 +29,29 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-;; Set background early to prevent white flash before theme loads
-(add-to-list 'default-frame-alist '(background-color . "#2c2c2c"))
-(add-to-list 'default-frame-alist '(foreground-color . "#c8c8c0"))
+;; Set background early to prevent white flash before theme loads.
+;; Read ~/.emacs.d/.active-theme so the color matches the saved theme.
+(let* ((theme-file (expand-file-name "~/.emacs.d/.active-theme"))
+       (theme-name (when (file-exists-p theme-file)
+                     (string-trim
+                      (with-temp-buffer
+                        (insert-file-contents theme-file)
+                        (buffer-string)))))
+       ;; Map theme names to their background colors
+       (bg (cond ((equal theme-name "Nature")        "#2b3830")
+                 ((equal theme-name "Nord")           "#2e3440")
+                 ((equal theme-name "Rosé Pine")      "#191724")
+                 ((equal theme-name "Solarized Dark") "#002b36")
+                 ((equal theme-name "Monochrome")     "#111111")
+                 (t                                   "#2d2d2d"))) ; Default
+       (fg (cond ((equal theme-name "Nature")        "#c8cfc0")
+                 ((equal theme-name "Nord")           "#d8dee9")
+                 ((equal theme-name "Rosé Pine")      "#e0def4")
+                 ((equal theme-name "Solarized Dark") "#839496")
+                 ((equal theme-name "Monochrome")     "#c8c8c8")
+                 (t                                   "#c8c8c0")))) ; Default
+  (add-to-list 'default-frame-alist (cons 'background-color bg))
+  (add-to-list 'default-frame-alist (cons 'foreground-color fg)))
 
 ;; Disable bell
 (setq ring-bell-function 'ignore)
@@ -48,3 +68,4 @@
 ;; File name handler optimization
 (defvar default-file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
+

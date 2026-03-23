@@ -41,18 +41,14 @@
 (require 'functions)
 (require 'keybindings)
 (require 'dirs)
+(require 'theme)
 
-;; Set font based on OS
-(cond
-  ((eq system-type 'windows-nt)
-   (when (find-font (font-spec :family "Lucida Console"))
-     (set-face-attribute 'default nil :family "Lucida Console" :height 110)))
-  ((eq system-type 'gnu/linux)
-   (when (find-font (font-spec :family "DejaVu Sans Mono"))
-     (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 110))))
-
-;; Load custom last so faces/theme override package defaults
+;; Load custom.el for variables only — must come before theme
 (load custom-file t)
+
+;; Restore saved theme — last, wins over everything
+;; Font is set per-theme in theme.el (default face :family/:height/:weight)
+(my-theme-load-saved)
 
 ;; Re-enable redisplay and messages after everything is loaded
 (setq-default inhibit-redisplay nil)
