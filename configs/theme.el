@@ -98,13 +98,27 @@
 
 ;;; ── Core apply ───────────────────────────────────────────────────────────────
 
+;; (defun my--apply-face-list (face-list)
+;;   "Apply a list of (FACE . ATTRS) pairs, warning on unknown faces."
+;;   (dolist (entry face-list)
+;;     (condition-case err
+;;         (apply #'set-face-attribute (car entry) nil (cdr entry))
+;;       (error (message "Theme warning: skipping face `%s' — %s"
+;;                       (car entry) (error-message-string err))))))
 (defun my--apply-face-list (face-list)
-  "Apply a list of (FACE . ATTRS) pairs, warning on unknown faces."
+  "Apply faces at `user' theme priority, surviving any load-theme calls."
   (dolist (entry face-list)
     (condition-case err
-        (apply #'set-face-attribute (car entry) nil (cdr entry))
-      (error (message "Theme warning: skipping face `%s' — %s"
-                      (car entry) (error-message-string err))))))
+        (progn
+          (apply #'set-face-attribute (car entry) nil (cdr entry))
+          (face-spec-set (car entry)
+                         `((t ,(cdr entry)))
+                         'face-override-spec))
+      (error
+       (when after-init-time
+         (message "Theme warning: skipping face `%s' — %s"
+                  (car entry) (error-message-string err)))))))
+
 
 (defvar my--startup-faces nil
   "Faces to re-apply on `emacs-startup-hook'. Set by `my--apply-theme'.")
@@ -116,6 +130,18 @@
 
 ;; Registered once — fires after all packages and desktop have loaded
 (add-hook 'emacs-startup-hook #'my--startup-reapply)
+;; Re-apply theme faces whenever dired opens (fixes color on reopen)
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (when my-current-theme
+              (let* ((found (cl-find my-current-theme my-themes
+                                     :key (lambda (p) (plist-get p :name))
+                                     :test #'string=))
+                     (faces (plist-get found :faces))
+                     (dired-face (assq 'dired-directory faces)))
+                (when dired-face
+                  (apply #'set-face-attribute
+                         'dired-directory nil (cdr dired-face)))))))
 
 (defun my--apply-theme (theme-plist)
   "Disable all themes, load :base, apply :faces, schedule reapply at startup."
