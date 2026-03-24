@@ -3,16 +3,22 @@
 
 
 (custom-set-faces
- ;; Faces are managed by theme.el / my-theme-switch.
- ;; Do not add face overrides here — they will conflict.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(global-whitespace-mode nil)
  '(package-selected-packages
-   '(async counsel dash dumb-jump go-mode hideshowvis ivy lsp-ivy magit
-           marginalia multiple-cursors orderless popup s swiper
-           swiper-helm ts typescript-mode vertico wfnames))
+   '(async counsel dash go-mode ivy lsp-ivy magit marginalia
+		   multiple-cursors orderless popup s swiper swiper-helm ts
+		   typescript-mode vertico wfnames))
  '(tool-bar-mode nil))
 
 
