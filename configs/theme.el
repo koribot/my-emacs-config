@@ -3,9 +3,11 @@
 ;; Persistence: ~/.active-theme stores the active theme name.
 ;; Call (my-theme-load-saved) in init.el to restore it on startup.
 
-(defvar my-active-theme-file (expand-file-name "~/.emacs.d/.active-theme")
+;; (defvar my-active-theme-file (expand-file-name "~/.emacs.d/.active-theme")
+;;   "File that persists the active theme name across Emacs restarts.")
+(defvar my-active-theme-file
+  (expand-file-name ".active-theme" user-emacs-directory)
   "File that persists the active theme name across Emacs restarts.")
-
 ;; Font resolver: picks font based on OS, falls back to "monospace".
 (defvar my--coding-font
   (cond
@@ -34,7 +36,7 @@
          :faces
          `((default                      . (:foreground "#c8c8c0" :family ,my--coding-font :height 110 :weight normal))
            (cursor                        . (:background "#e8c080"))
-           (dired-directory               . (:foreground "#e0b070" :weight normal))
+		   (dired-directory               . (:foreground "#e0b070" :weight normal))
            (font-lock-builtin-face        . (:foreground "#c8c8c0"))
            (font-lock-comment-face        . (:foreground "#c09060" :slant italic))
            (font-lock-constant-face       . (:foreground "#d8a868"))
@@ -60,9 +62,10 @@
            (highlight                     . (:background "#2a2742"))
            (mode-line                     . (:background "#12101e" :foreground "#9893a5"))
            (mode-line-inactive            . (:background "#161320" :foreground "#6e6a86"))
-		   ;; (line-number                   . (:foreground "#6e6a86" :background "#191724"))
-		   ;; (line-number-current-line      . (:foreground "#6e6a86" :background "#191724"))
-           (minibuffer-prompt             . (:foreground "#eb6f92" :weight bold))
+		   ;;(line-number                   . (:foreground "#6e6a86" :background "#191724"))
+		   ;;(line-number-current-line      . (:foreground "#6e6a86" :background "#191724"))
+           ;;(minibuffer-prompt             . (:foreground "#eb6f92" :weight bold))
+           (minibuffer-prompt             . (:foreground "#7ab8a0" :weight bold))
            (dired-directory               . (:foreground "#7ab8a0" :weight normal :inherit nil))
            (font-lock-builtin-face        . (:foreground "#9ccfd8"))
            (font-lock-comment-face        . (:foreground "#0f9552" :slant italic))
@@ -106,14 +109,10 @@
 ;;       (error (message "Theme warning: skipping face `%s' — %s"
 ;;                       (car entry) (error-message-string err))))))
 (defun my--apply-face-list (face-list)
-  "Apply faces at `user' theme priority, surviving any load-theme calls."
+  "Apply a list of (FACE . ATTRS) pairs."
   (dolist (entry face-list)
     (condition-case err
-        (progn
-          (apply #'set-face-attribute (car entry) nil (cdr entry))
-          (face-spec-set (car entry)
-                         `((t ,(cdr entry)))
-                         'face-override-spec))
+        (apply #'set-face-attribute (car entry) nil (cdr entry))
       (error
        (when after-init-time
          (message "Theme warning: skipping face `%s' — %s"
@@ -144,20 +143,19 @@
                          'dired-directory nil (cdr dired-face)))))))
 
 (defun my--apply-theme (theme-plist)
-  "Disable all themes, load :base, apply :faces, schedule reapply at startup."
   (let ((base      (plist-get theme-plist :base))
         (faces     (plist-get theme-plist :faces))
         (lsp-faces (plist-get theme-plist :lsp))
         (name      (plist-get theme-plist :name)))
-    ;; 1. Disable all active themes
     (mapc #'disable-theme custom-enabled-themes)
-    ;; 2. Load the base theme
     (load-theme base t)
-    ;; 3. Apply faces immediately (best effort — some may not exist yet)
+    ;; Clear ALL faces from ALL themes so nothing bleeds through
+    (dolist (theme my-themes)
+      (dolist (entry (append (plist-get theme :faces)
+                             (plist-get theme :lsp)))
+        (face-spec-set (car entry) nil 'face-override-spec)))
     (my--apply-face-list (append faces lsp-faces))
-    ;; 4. Store faces for emacs-startup-hook to re-apply dead last
     (setq my--startup-faces (append faces lsp-faces))
-    ;; 5. Persist + track
     (my--save-active-theme name)
     (setq my-current-theme name)
     (message "Theme: %s" name)))
